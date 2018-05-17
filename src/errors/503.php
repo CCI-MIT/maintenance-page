@@ -2,12 +2,12 @@
 http_response_code(503);
 header("Cache-Control: no-store, max-age=0");
 
-if (file_exists("../config.ini")):
+if (file_exists("../../config.ini")):
+    $config = parse_ini_file("../../config.ini");
+elseif (file_exists("../config.ini")):
     $config = parse_ini_file("../config.ini");
-elseif (file_exists("config.ini")):
-    $config = parse_ini_file("config.ini");
 else:
-    $config = parse_ini_file("../config-default.ini");
+    $config = parse_ini_file("../../config-default.ini");
 endif;
 
 $colabName = $config['colabName'];
@@ -18,7 +18,7 @@ $emailEnabled = $config['emailEnabled'];
 $logoPath = $config['logoPath'];
 ?>
 
-<?php include 'includes/css.php'; ?>
+<?php include '../includes/css.php'; ?>
 
 <!DOCTYPE html>
 <html>
