@@ -10,4 +10,4 @@ sed -i 's/#ProxyPassMatch/ProxyPassMatch/g' /etc/httpd/conf.d/xcolab.conf
 sed -i 's/#ProxyPassReverse/ProxyPassReverse/g' /etc/httpd/conf.d/xcolab.conf
 
 # Restart the server
-service httpd graceful
+systemctl reload httpd
